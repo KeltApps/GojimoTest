@@ -4,9 +4,7 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.LinkedList;
 
-/**
- * Created by sergio on 12/05/16 for KelpApps.
- */
+
 public class Qualification {
     @SerializedName("id")
     private String idQualification;

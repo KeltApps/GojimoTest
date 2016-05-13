@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">GojimoTest</string>
+    <!--Fragments name -->
+    <string name="fragment.qualifications">QualificationsFragment</string>
+    <string name="fragment.subjects">SubjectsFragment</string>
+    <!--Qualifications fragment -->
+    <string name="qualifications.countryWorldwide">Worldwide</string>
+    <!--Subject fragment -->
+    <string name="subjects.empty">This qualification does not have subjects</string>
 </resources>

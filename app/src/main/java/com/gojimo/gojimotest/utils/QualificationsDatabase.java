@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import com.gojimo.gojimotest.models.Country;
 import com.gojimo.gojimotest.models.Qualification;
 import com.gojimo.gojimotest.models.Subject;
 import com.google.gson.GsonBuilder;
@@ -16,9 +17,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-/**
- * Created by sergio on 12/05/16 for KelpApps.
- */
+
 public class QualificationsDatabase extends SQLiteOpenHelper {
     private static final String TAG = QualificationsDatabase.class.getSimpleName();
 
@@ -101,8 +100,11 @@ public class QualificationsDatabase extends SQLiteOpenHelper {
         }.getType();
         List<Qualification> qualificationList = new GsonBuilder().create().fromJson(data, fooType);
         HashMap<String, Qualification> entryMap = new HashMap<>();
-        for (Qualification qualification : qualificationList)
+        for (Qualification qualification : qualificationList) {
+            if(qualification.getCountry() == null)
+                qualification.setCountry(new Country("ZZZ"));
             entryMap.put(qualification.getIdQualification(), qualification);
+        }
 
         Cursor c = getQualifications();
         assert c != null;
@@ -131,6 +133,7 @@ public class QualificationsDatabase extends SQLiteOpenHelper {
             );
             synchronizeSubjects(qualification.getSubjectsLinkedList(), qualification.getIdQualification());
         }
+
     }
 
     public Cursor getSubjects() {
@@ -210,4 +213,5 @@ public class QualificationsDatabase extends SQLiteOpenHelper {
             );
         }
     }
+
 }

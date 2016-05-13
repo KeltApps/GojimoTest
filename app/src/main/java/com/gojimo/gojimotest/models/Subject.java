@@ -2,9 +2,7 @@ package com.gojimo.gojimotest.models;
 
 import com.google.gson.annotations.SerializedName;
 
-/**
- * Created by sergio on 12/05/16 for KelpApps.
- */
+
 public class Subject {
     @SerializedName("id")
     private String idSubject;

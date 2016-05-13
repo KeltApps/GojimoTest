@@ -2,9 +2,7 @@ package com.gojimo.gojimotest.utils;
 
 import android.provider.BaseColumns;
 
-/**
- * Created by sergio on 12/05/16 for KelpApps.
- */
+
 public class ScriptDatabase {
 
     public static final String QUALIFICATIONS_TABLE_NAME = "qualificationsTable";

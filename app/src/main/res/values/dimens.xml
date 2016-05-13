@@ -2,4 +2,14 @@
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
+    <!-- Default size text -->
+    <dimen name="size.text.title">20sp</dimen>
+    <dimen name="size.text.subheading">16sp</dimen>
+    <dimen name="size.text.body">14sp</dimen>
+    <!--Item qualification header-->
+    <dimen name="qualificationHeader.height">54dp</dimen>
+    <dimen name="qualificationHeader.heightPhoto">34dp</dimen>
+    <dimen name="qualificationHeader.verticalMargin">8dp</dimen>
+    <!--Item subjects-->
+    <dimen name="subjects.margin">4dp</dimen>
 </resources>

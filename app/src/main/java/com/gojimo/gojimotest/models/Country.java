@@ -2,12 +2,14 @@ package com.gojimo.gojimotest.models;
 
 import com.google.gson.annotations.SerializedName;
 
-/**
- * Created by sergio on 12/05/16 for KelpApps.
- */
+
 public class Country {
     @SerializedName("name")
     private String nameCountry;
+
+    public Country(String nameCountry) {
+        this.nameCountry = nameCountry;
+    }
 
     public String getNameCountry() {
         return nameCountry;

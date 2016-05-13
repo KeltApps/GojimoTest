@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Alpha text on light background -->
+    <item name="alpha.lightBackground.text.primary" format="float" type="dimen">0.87</item>
+    <item name="alpha.lightBackground.text.secondary" format="float" type="dimen">0.54</item>
+    <item name="alpha.lightBackground.text.disabled" format="float" type="dimen">0.38 </item>
+    <!-- Alpha text on dark background -->
+    <item name="alpha.darkBackground.text.primary" format="float" type="dimen">1</item>
+    <item name="alpha.darkBackground.text.secondary" format="float" type="dimen">0.7</item>
+    <item name="alpha.darkBackground.text.disabled" format="float" type="dimen">0.3 </item>
+
+</resources>

@@ -8,9 +8,7 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.support.annotation.Nullable;
 
-/**
- * Created by sergio on 12/05/16 for KelpApps.
- */
+
 public class QualificationsProvider extends ContentProvider {
     private static final String prefix_content = "content://";
     private static final String prefix_uri = "com.gojimo.gojimotest.contentproviders";
