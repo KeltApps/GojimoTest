@@ -29,7 +29,9 @@ import com.gojimo.gojimotest.views.adapters.QualificationsCursorAdapter;
 
 import se.emilsjolander.stickylistheaders.StickyListHeadersListView;
 
-
+/**
+ * Fragment to retrieve the information and to show the qualifications
+ */
 public class QualificationsFragment extends Fragment implements LoaderManager.LoaderCallbacks<Cursor>, Response.Listener<String>, Response.ErrorListener, AdapterView.OnItemClickListener {
     private static final String TAG = QualificationsFragment.class.getSimpleName();
     private QualificationsCursorAdapter qualificationsCursorAdapter = null;

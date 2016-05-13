@@ -8,7 +8,9 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.support.annotation.Nullable;
 
-
+/**
+ * Content provider of the QualificationsDatabase
+ */
 public class QualificationsProvider extends ContentProvider {
     private static final String prefix_content = "content://";
     private static final String prefix_uri = "com.gojimo.gojimotest.contentproviders";

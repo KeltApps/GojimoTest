@@ -17,7 +17,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-
+/**
+ * Database with the information retrieved from the server
+ */
 public class QualificationsDatabase extends SQLiteOpenHelper {
     private static final String TAG = QualificationsDatabase.class.getSimpleName();
 
@@ -54,12 +56,21 @@ public class QualificationsDatabase extends SQLiteOpenHelper {
         onCreate(db);
     }
 
+    /**
+     * Get all the Qualification inside of the database
+     * @return
+     */
     public Cursor getQualifications() {
         return getWritableDatabase().rawQuery(
                 "select * from " + ScriptDatabase.QUALIFICATIONS_TABLE_NAME, null);
     }
 
-
+    /**
+     * Insert a new Qualification
+     * @param idQualification id of the new Qualification
+     * @param name name of the new Qualification
+     * @param country country of the new Qualification
+     */
     private void insertQualification(
             String idQualification,
             String name,
@@ -77,7 +88,13 @@ public class QualificationsDatabase extends SQLiteOpenHelper {
         );
     }
 
-
+    /**
+     * Update a Qualification
+     * @param id database id of the Qualification
+     * @param idQualification id of the Qualification
+     * @param name name of the Qualification
+     * @param country country of the Qualification
+     */
     private void updateQualification(int id,
                                      String idQualification,
                                      String name,
@@ -95,20 +112,27 @@ public class QualificationsDatabase extends SQLiteOpenHelper {
                 new String[]{String.valueOf(id)});
     }
 
+    /**
+     * Synchronize the Qualifications inside of data  into the database
+     * @param data data obtained from the server
+     */
     public void synchronizeQualifications(String data) {
         Type fooType = new TypeToken<ArrayList<Qualification>>() {
         }.getType();
+        //Parse the data
         List<Qualification> qualificationList = new GsonBuilder().create().fromJson(data, fooType);
+        //Create a HasMap from the list obtained
         HashMap<String, Qualification> entryMap = new HashMap<>();
         for (Qualification qualification : qualificationList) {
             if(qualification.getCountry() == null)
                 qualification.setCountry(new Country("ZZZ"));
             entryMap.put(qualification.getIdQualification(), qualification);
         }
-
+        //Get all the Qualification inside of the database
         Cursor c = getQualifications();
         assert c != null;
-
+        //Check if the Qualifications obtained from the server already exists in the database.
+        //If the Qualification already exists, It will be updated
         while (c.moveToNext()) {
             String qualificationId = c.getString(c.getColumnIndex(ScriptDatabase.ColumnQualifications.ID_QUALIFICATION));
             Qualification match = entryMap.get(qualificationId);
@@ -125,6 +149,7 @@ public class QualificationsDatabase extends SQLiteOpenHelper {
             }
         }
         c.close();
+        //Insert the new Qualifications
         for (Qualification qualification : entryMap.values()) {
             insertQualification(
                     qualification.getIdQualification(),
@@ -136,12 +161,22 @@ public class QualificationsDatabase extends SQLiteOpenHelper {
 
     }
 
+    /**
+     * Get all the Subjects inside of the database
+     * @return
+     */
     public Cursor getSubjects() {
         return getWritableDatabase().rawQuery(
                 "select * from " + ScriptDatabase.SUBJECTS_TABLE_NAME, null);
     }
 
-
+    /**
+     * Insert a new Subject
+     * @param idQualification id of the Qualification which belongs
+     * @param idSubject id of the new Subject
+     * @param title title of the new Subject
+     * @param colour colour of the new colour
+     */
     private void insertSubject(
             String idQualification,
             String idSubject,
@@ -161,6 +196,14 @@ public class QualificationsDatabase extends SQLiteOpenHelper {
         );
     }
 
+    /**
+     * Update a Subject
+     * @param id database id of the subject
+     * @param idQualification id of the Qualification which belongs
+     * @param idSubject id of the Subject
+     * @param title title of the Subject
+     * @param colour colour of the colour
+     */
     private void updateSubject(int id,
                                String idQualification,
                                String idSubject,
@@ -181,6 +224,11 @@ public class QualificationsDatabase extends SQLiteOpenHelper {
     }
 
 
+    /**
+     * Synchronize the Subject inside of subjectList into the database
+     * @param subjectList Subjects to synchronize
+     * @param idQualification if of the Qualification which belongs
+     */
     private void synchronizeSubjects(List<Subject> subjectList, String idQualification) {
         HashMap<String, Subject> entryMap = new HashMap<>();
         for (Subject subject : subjectList)

@@ -7,6 +7,9 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.gojimo.gojimotest.fragments.QualificationsFragment;
 
+    /**
+     * Main Activity
+     */
     public class MainActivity extends AppCompatActivity {
 
     @Override

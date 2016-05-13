@@ -22,7 +22,9 @@ import com.gojimo.gojimotest.utils.QualificationsProvider;
 import com.gojimo.gojimotest.utils.ScriptDatabase;
 import com.gojimo.gojimotest.views.adapters.SubjectsCursorAdapter;
 
-
+/**
+ * Fragment to show the subjects of a qualification
+ */
 public class SubjectsFragment extends Fragment implements LoaderManager.LoaderCallbacks<Cursor> {
     public static String ARGS_ID_QUALIFICATIONS = "argsIdQualifications";
     public static String ARGS_NAME = "argsName";

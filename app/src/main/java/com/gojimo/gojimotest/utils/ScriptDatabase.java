@@ -2,7 +2,9 @@ package com.gojimo.gojimotest.utils;
 
 import android.provider.BaseColumns;
 
-
+/**
+ * Script to create the tables inside the database
+ */
 public class ScriptDatabase {
 
     public static final String QUALIFICATIONS_TABLE_NAME = "qualificationsTable";
